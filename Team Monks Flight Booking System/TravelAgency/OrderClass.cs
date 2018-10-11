@@ -6,14 +6,16 @@ namespace Team_Monks_Flight_Booking_System.TravelAgency
     public class OrderClass
     {
         private string senderId;
+
         public string SenderId
         {
             get { return senderId; }
             set { senderId = value; }
         }
 
-        private Int32 cardNo;
-        public Int32 CardNo
+        private int cardNo;
+
+        public int CardNo
         {
             get { return cardNo; }
             set { cardNo = value; }
@@ -26,9 +28,9 @@ namespace Team_Monks_Flight_Booking_System.TravelAgency
             set { receiverID = value; }
         }
 
-        private Int32 numTickets;
+        private int numTickets;
 
-        public Int32 NumTickets
+        public int NumTickets
         {
             get { return numTickets; }
             set { numTickets = value; }

@@ -8,7 +8,7 @@ namespace Team_Monks_Flight_Booking_System.TravelAgency
     class TravelAgencyClass
     {
         // keeps a mapping of price difference range against the number of tickets to order
-        private Dictionary<string, Int32> priceTicketMap = new Dictionary<string, Int32>()
+        private Dictionary<string, int> priceTicketMap = new Dictionary<string, int>()
         {
             {"Default", 5},
             {"100-200", 10},
@@ -28,7 +28,7 @@ namespace Team_Monks_Flight_Booking_System.TravelAgency
         private static double ticketUnitPrice;
         private static int cardNo;
 
-        private Boolean hasPriceCutEventHappened = false;
+        private bool hasPriceCutEventHappened = false;
 
         public TravelAgencyClass(MultiCellBufferClass OrderBuffer)
         {
@@ -57,8 +57,8 @@ namespace Team_Monks_Flight_Booking_System.TravelAgency
                     orderObject.NumTickets = numOfTickets;
                     orderObject.UnitPrice = ticketUnitPrice;
 
-                    String orderString = EncoderDecoderClass.encodeOrderObject(orderObject);
-                    System.Console.WriteLine(" {0} built order: {1}", Thread.CurrentThread.Name, orderString);
+                    string orderString = EncoderDecoderClass.encodeOrderObject(orderObject);
+                    Console.WriteLine(" {0} built order: {1}", Thread.CurrentThread.Name, orderString);
 
                     // saving timestamp of the order before sending it to buffer
                     orderTimeStamp = DateTime.Now;

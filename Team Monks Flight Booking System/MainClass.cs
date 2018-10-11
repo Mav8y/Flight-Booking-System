@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using Team_Monks_Flight_Booking_System.Utility;
 using Team_Monks_Flight_Booking_System.Airline;
 using Team_Monks_Flight_Booking_System.TravelAgency;
@@ -19,7 +20,7 @@ namespace Team_Monks_Flight_Booking_System
 
         static void Main(string[] args)
         {
-            System.Console.WriteLine(" Welcome to Monks Flight Booking System ");
+            Console.WriteLine(" Welcome to Monks Flight Booking System ");
 
             // creating 3 airline threads
             Thread[] airline = new Thread[3];
