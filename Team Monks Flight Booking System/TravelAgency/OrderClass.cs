@@ -5,43 +5,14 @@ namespace Team_Monks_Flight_Booking_System.TravelAgency
     // It represents the order object sent from travel agencies to airlines
     public class OrderClass
     {
-        private string senderId;
+        public string SenderId { get; set; }
 
-        public string SenderId
-        {
-            get { return senderId; }
-            set { senderId = value; }
-        }
+        public int CardNo { get; set; }
 
-        private int cardNo;
+        public string ReceiverID { get; set; }
 
-        public int CardNo
-        {
-            get { return cardNo; }
-            set { cardNo = value; }
-        }
+        public int NumTickets { get; set; }
 
-        private string receiverID;
-        public string ReceiverID
-        {
-            get { return receiverID; }
-            set { receiverID = value; }
-        }
-
-        private int numTickets;
-
-        public int NumTickets
-        {
-            get { return numTickets; }
-            set { numTickets = value; }
-        }
-
-        private double unitPrice;
-
-        public double UnitPrice
-        {
-            get { return unitPrice; }
-            set { unitPrice = value; }
-        }
+        public double UnitPrice { get; set; }
     }
 }
