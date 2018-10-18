@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
 
 namespace Team_Monks_Flight_Booking_System.Utility
 {
-    // MultiCellBuffer class is used for the communication between 
+    //MultiCellBuffer class is used for the communication between 
     //the travel agencies (clients) and the airlines (servers) 
     class MultiCellBufferClass
     {
@@ -21,7 +18,7 @@ namespace Team_Monks_Flight_Booking_System.Utility
         List<string> orderStringBuffer = new List<string>();
 
         // adding order string received from travel agencies to buffer object
-        public Boolean addToBuffer(String orderString)
+        public bool addToBuffer(string orderString)
         {
             bool successs = false;
 
@@ -57,9 +54,9 @@ namespace Team_Monks_Flight_Booking_System.Utility
         }
 
         // removing an order string from orderStringBuffer on the basis of receiverId
-        public String removeFromBuffer(String receiverId)
+        public string removeFromBuffer(string receiverId)
         {
-            String removedOrderString = null;
+            string removedOrderString = null;
 
             // placing a monitor on orderStringBuffer as this object will be accessed by multiple threads at same time
             Monitor.Enter(orderStringBuffer);
@@ -75,7 +72,7 @@ namespace Team_Monks_Flight_Booking_System.Utility
                     try
                     {
                         semaphore.WaitOne();
-                        foreach (String str in orderStringBuffer)
+                        foreach (string str in orderStringBuffer)
                         {
                             if (str.Contains(receiverId))
                             {

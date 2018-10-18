@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
-using Team_Monks_Flight_Booking_System.Utility;
 
 namespace Team_Monks_Flight_Booking_System.TravelAgency
 {
     // prints the confirmed orders received from airlines
     class ConfirmationBufferClass
     {
-        private Object confirmBufferLock = new object();
+        private object confirmBufferLock = new object();
         
         // Event handler for order confirmation event
         public void orderConfirmationEventHandler(OrderClass confirmedOrder, double totalAmountCharged)

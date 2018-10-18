@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Team_Monks_Flight_Booking_System.TravelAgency;
 
 namespace Team_Monks_Flight_Booking_System.Airline
@@ -24,7 +20,7 @@ namespace Team_Monks_Flight_Booking_System.Airline
 
         public OrderProcessingClass(OrderClass confirmedOrder)
         {
-            OrderProcessingClass.confirmedOrderObject = confirmedOrder;
+            confirmedOrderObject = confirmedOrder;
         }
 
         // Order processing class thread method
@@ -34,9 +30,9 @@ namespace Team_Monks_Flight_Booking_System.Airline
             if (confirmedOrderObject != null && isValidCreditCardFormat())
             {
                 double totalAmount = calculateTotalAmount();
-                 
+
                 // once the order is confirmed reducing the number of available tickets
-                Int32 availableTkt = AirlineClass.availableTickets;
+                int availableTkt = AirlineClass.availableTickets;
                 availableTkt -= confirmedOrderObject.NumTickets;
                 AirlineClass.availableTickets = availableTkt;
                 
@@ -49,12 +45,16 @@ namespace Team_Monks_Flight_Booking_System.Airline
 
         }
 
-        private static Boolean isValidCreditCardFormat()
+        private static bool isValidCreditCardFormat()
         {
             if (confirmedOrderObject.CardNo > creditCardStart && confirmedOrderObject.CardNo < creditCardEnd)
+            {
                 return true;
+            }
             else
+            {
                 return false;
+            }
         }
 
         private static double calculateTotalAmount()

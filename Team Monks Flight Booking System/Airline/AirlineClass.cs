@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
 using Team_Monks_Flight_Booking_System.Utility;
 using Team_Monks_Flight_Booking_System.TravelAgency;
@@ -11,6 +7,7 @@ namespace Team_Monks_Flight_Booking_System.Airline
 {
     // price cut event delegate declaration
     public delegate void priceCutDelegate(double previousPrice, double newPrice, string threadName);
+
     class AirlineClass
     {
         // price cut event declaration
@@ -47,11 +44,17 @@ namespace Team_Monks_Flight_Booking_System.Airline
 
                 // setting ticket price for all airline threads
                 if (Thread.CurrentThread.Name.Equals("Airline[1]"))
+                {
                     baseTicketUnitPrice = Airline_1_Price;
+                }
                 if (Thread.CurrentThread.Name.Equals("Airline[2]"))
+                {
                     baseTicketUnitPrice = Airline_2_Price;
+                }
                 if (Thread.CurrentThread.Name.Equals("Airline[3]"))
+                {
                     baseTicketUnitPrice = Airline_3_Price;
+                }
 
                 // fetching new price from pricing model for each airline thread
                 double newPrice = getPriceFromPricingModel();
@@ -67,12 +70,12 @@ namespace Team_Monks_Flight_Booking_System.Airline
                     OrderClass orderObject = null;
 
                     // removing a order cell from buffer by sending the current thread's name
-                    String orderString = buffer.removeFromBuffer(Thread.CurrentThread.Name);
+                    string orderString = buffer.removeFromBuffer(Thread.CurrentThread.Name);
 
                     // checking if the orderString received from buffer is not null and then proceeding with order processing
                     if (orderString != null)
                     {
-                        System.Console.WriteLine(" {0} has removed order: {1}", Thread.CurrentThread.Name, orderString);
+                        Console.WriteLine(" {0} has removed order: {1}", Thread.CurrentThread.Name, orderString);
 
                         orderObject = EncoderDecoderClass.decodeOrderObject(orderString);
 
@@ -120,14 +123,20 @@ namespace Team_Monks_Flight_Booking_System.Airline
                     }
                 }
                 if (threadName.Equals("Airline[1]"))
+                {
                     Airline_1_Price = newPrice;
+                }
                 if (threadName.Equals("Airline[2]"))
+                {
                     Airline_2_Price = newPrice;
+                }
                 if (threadName.Equals("Airline[3]"))
+                {
                     Airline_3_Price = newPrice;
+                }
             }
+
             return priceCutCounter;
         }
-
     }
 }
