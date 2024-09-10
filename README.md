@@ -1,6 +1,3 @@
-# Flight Booking System ![](https://img.shields.io/badge/C%23--brightgreen.svg) 
-## Developed by - Girish Patni and Siddharth Jain
-
 This is a C# console based application simulating an Airline Ticket Booking System.
 
 ### This system consists of three main components:-
